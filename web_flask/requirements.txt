@@ -1,3 +1,6 @@
 flask
 gunicorn
 pika
+sqlalchemy
+asyncpg
+psycopg2-binary

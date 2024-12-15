@@ -1,19 +1,21 @@
-FROM python:3.12
+FROM python:3.12-slim
 
-# Set the working directory
 WORKDIR /app
 
-# Copy requirements file
-COPY requirements.txt .
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
-RUN pip install -r requirements.txt
+# Install Python dependencies
+COPY web_flask/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
-COPY . .
+# Copy application code
+COPY web_flask/ .
 
-# Expose the port
-EXPOSE 8000
+# Set Python path to include the current directory
+ENV PYTHONPATH=/app
 
-# Command to run the application  "-w", "4" 
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "main:app"]
+# Run the application
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
