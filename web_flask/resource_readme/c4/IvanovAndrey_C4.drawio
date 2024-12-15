@@ -1,0 +1,396 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.8.4">
+  <diagram name="Страница — 1" id="Z63qryyW2T7Q6nmu0V6b">
+    <mxGraphModel dx="2391" dy="1169" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object placeholders="1" c4Name="Система выдачи копий и рассылки" c4Type="SystemScopeBoundary" c4Application="Obo-space" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="gCeQcle9XDZXH8u52Zny-1">
+          <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry y="40" width="2470" height="980" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Веб сервер" c4Type="ContainerScopeBoundary" c4Application="Docker Compose" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;&lt;div style=&quot;text-align: left&quot;&gt;%c4Name%&lt;/div&gt;&lt;/b&gt;&lt;/font&gt;&lt;div style=&quot;text-align: left&quot;&gt;[%c4Application%]&lt;/div&gt;" id="gCeQcle9XDZXH8u52Zny-2">
+          <mxCell style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;rotatable=0;perimeter=rectanglePerimeter;noLabel=0;labelPadding=0;allowArrows=0;connectable=0;expand=0;recursiveResize=0;editable=1;pointerEvents=0;absoluteArcSize=1;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="510" y="70" width="1680" height="850" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="oHuJFypylbSUv3SkSEwV-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.983;exitY=0.67;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="gCeQcle9XDZXH8u52Zny-4" target="gCeQcle9XDZXH8u52Zny-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="431" />
+              <mxPoint x="430" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oHuJFypylbSUv3SkSEwV-48" value="Запрашивает доступ к копии игры&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oHuJFypylbSUv3SkSEwV-47" vertex="1" connectable="0">
+          <mxGeometry x="-0.5381" y="-1" relative="1" as="geometry">
+            <mxPoint x="26" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="Пользователь" c4Type="Person" c4Description="Клиент, который зашёл за копией" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="gCeQcle9XDZXH8u52Zny-4">
+          <mxCell style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;points=[[0.5,0,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="30" y="310" width="200" height="180" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="БД пользователей" c4Type="Container" c4Technology="e.g. PostgreSQL" c4Description="Хранит персональные данные пользователей" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="gCeQcle9XDZXH8u52Zny-7">
+          <mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="1730" y="480" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Балансировщик соединений" c4Type="Component: nginx, apache" c4Description="Балансировщик/маршрутизатор соединений" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="gCeQcle9XDZXH8u52Zny-8">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="533" y="400" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Веб сервер страницы" c4Type="Container" c4Technology="e.g. Dockerfile + flask" c4Description="Рендеринг и выдача страниц сайта" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-4">
+          <mxCell style="shape=hexagon;size=50;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="930" y="300" width="200" height="170" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Модуль регистрации и авторизации пользователя" c4Type="Container" c4Technology="Dockerfile + FastAPI" c4Description="Занимается проверкой существования пользователя в бд, авторизацию существующих и регистрацию новых пользователей" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-5">
+          <mxCell style="shape=hexagon;size=50;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="1010" y="555" width="200" height="170" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Модуль уведомлений" c4Type="Container" c4Technology="RabbitMQ+PythonConsumer" c4Description="Данный модуль читает очередь уведомлений и каждый объект нужному(нужным)отправляет  человеку(Группе людей)." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-7">
+          <mxCell style="shape=hexagon;size=50;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="1680" y="740" width="200" height="170" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Очередь уведомлений" c4Type="Container" c4Technology="e.g. RabbitMq" c4Description="Тут храняться уведомление для отправки" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-8">
+          <mxCell style="shape=cylinder3;size=15;direction=south;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="1310" y="770" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Description="Получает Уведомление на отправку" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-9">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-8" target="oHuJFypylbSUv3SkSEwV-7" edge="1">
+            <mxGeometry x="-0.1111" y="-30" width="240" relative="1" as="geometry">
+              <mxPoint x="1280" y="620" as="sourcePoint" />
+              <mxPoint x="1420" y="680" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1620" y="830" />
+                <mxPoint x="1620" y="825" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Description="Сохраняет уведомление на отправку" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-10">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-5" target="oHuJFypylbSUv3SkSEwV-8" edge="1">
+            <mxGeometry x="-0.1525" y="-10" width="240" relative="1" as="geometry">
+              <mxPoint x="1280" y="620" as="sourcePoint" />
+              <mxPoint x="1520" y="620" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Файлы сайта" c4Type="Container" c4Technology="e.g. Storage VPS" c4Description="Тут хранятся шаблоны, ресурсы их, настройки сервисов" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-11">
+          <mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="1390" y="325" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Description="Шаблоны и ресурсы, копий игры" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-12">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-11" target="oHuJFypylbSUv3SkSEwV-4" edge="1">
+            <mxGeometry x="-0.0588" y="-15" width="240" relative="1" as="geometry">
+              <mxPoint x="1280" y="620" as="sourcePoint" />
+              <mxPoint x="1520" y="620" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Makes SQL query anout users, auth data" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-19">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.943;exitY=0.392;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.324;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-5" target="gCeQcle9XDZXH8u52Zny-7" edge="1">
+            <mxGeometry x="-0.1064" y="20" width="240" relative="1" as="geometry">
+              <mxPoint x="1240" y="620" as="sourcePoint" />
+              <mxPoint x="1480" y="620" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1310" y="622" />
+                <mxPoint x="1310" y="520" />
+                <mxPoint x="1610" y="520" />
+                <mxPoint x="1610" y="519" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Answer by SQL query from DB" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-20">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.588;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.006;exitY=0.574;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="gCeQcle9XDZXH8u52Zny-7" target="oHuJFypylbSUv3SkSEwV-5" edge="1">
+            <mxGeometry x="0.7759" y="25" width="240" relative="1" as="geometry">
+              <mxPoint x="1440" y="610" as="sourcePoint" />
+              <mxPoint x="1619" y="599" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1340" y="549" />
+                <mxPoint x="1340" y="655" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. GET/POST - request" c4Description="e.g. Request Web-page and resources" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-21">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.997;exitY=0.121;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="gCeQcle9XDZXH8u52Zny-8" target="oHuJFypylbSUv3SkSEwV-4" edge="1">
+            <mxGeometry x="-0.8107" y="45" width="240" relative="1" as="geometry">
+              <mxPoint x="550" y="377.97" as="sourcePoint" />
+              <mxPoint x="950" y="379.97" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Makes SQL query about user, subscriptions" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-23">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.107;entryY=0.951;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-7" target="gCeQcle9XDZXH8u52Zny-7" edge="1">
+            <mxGeometry x="0.2244" y="55" width="240" relative="1" as="geometry">
+              <mxPoint x="1209" y="632" as="sourcePoint" />
+              <mxPoint x="2049" y="643" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1780" y="660" />
+                <mxPoint x="1756" y="660" />
+                <mxPoint x="1756" y="620" />
+              </Array>
+              <mxPoint x="9" y="30" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Answer by SQL query from DB" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-24">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.832;entryY=0.166;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.235;exitY=0.973;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="gCeQcle9XDZXH8u52Zny-7" target="oHuJFypylbSUv3SkSEwV-7" edge="1">
+            <mxGeometry x="0.5085" y="94" width="240" relative="1" as="geometry">
+              <mxPoint x="2049" y="673" as="sourcePoint" />
+              <mxPoint x="1220" y="665" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1786" y="640" />
+                <mxPoint x="1846" y="640" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. GET/POST/PATCH - HTTP request" c4Description="e.g. Makes API request" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-25">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.363;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.373;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-4" target="oHuJFypylbSUv3SkSEwV-5" edge="1">
+            <mxGeometry x="-0.5" y="-43" width="240" relative="1" as="geometry">
+              <mxPoint x="1009.74" y="508" as="sourcePoint" />
+              <mxPoint x="1859.74" y="480" as="targetPoint" />
+              <mxPoint x="-43" y="-43" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. HTTP payload" c4Description="Response at API requests" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-26">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.6;exitY=-0.029;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-5" target="oHuJFypylbSUv3SkSEwV-4" edge="1">
+            <mxGeometry x="-0.4439" y="-14" width="240" relative="1" as="geometry">
+              <mxPoint x="1280" y="500" as="sourcePoint" />
+              <mxPoint x="1095" y="568" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1130" y="500" />
+                <mxPoint x="1030" y="500" />
+              </Array>
+              <mxPoint x="10" y="4" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. HTTP - response" c4Description="HTTP page and resourses" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-27">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.087;exitY=0.66;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-4" target="gCeQcle9XDZXH8u52Zny-8" edge="1">
+            <mxGeometry x="-0.0094" y="28" width="240" relative="1" as="geometry">
+              <mxPoint x="750" y="800" as="sourcePoint" />
+              <mxPoint x="901" y="670" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="870" y="412" />
+                <mxPoint x="870" y="430" />
+              </Array>
+              <mxPoint x="20" y="-8" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Email server" c4Type="SMTP/POP3 - Server" c4Description="Почтовый сервер пользователя" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-29">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="2220" y="770" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="Status by request to send" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-30">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.918;entryY=0.647;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-29" target="oHuJFypylbSUv3SkSEwV-7" edge="1">
+            <mxGeometry x="0.2844" y="25" width="240" relative="1" as="geometry">
+              <mxPoint x="2420" y="860" as="sourcePoint" />
+              <mxPoint x="2232" y="983" as="targetPoint" />
+              <mxPoint as="offset" />
+              <Array as="points">
+                <mxPoint x="2150" y="860" />
+                <mxPoint x="2150" y="850" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP requests" c4Description="Response at SMTP/POP3 requests to send" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-31">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.006;entryY=0.574;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-7" target="oHuJFypylbSUv3SkSEwV-29" edge="1">
+            <mxGeometry x="-0.3048" y="30" width="240" relative="1" as="geometry">
+              <mxPoint x="2280" y="875" as="sourcePoint" />
+              <mxPoint x="2180" y="795" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="2170" y="825" />
+                <mxPoint x="2170" y="839" />
+                <mxPoint x="2180" y="839" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Модуль управления уведомлений" c4Type="Container" c4Technology="Dockerfile + flask" c4Description="Занимается управлением уведомлений, новостей и так далее. &#xa;Преднозначено только для администраторов" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-33">
+          <mxCell style="shape=hexagon;size=50;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="750" y="570" width="200" height="170" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. GET/POST - request" c4Description="e.g. Request Web-page and resources" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-34">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.7;exitY=0.982;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="gCeQcle9XDZXH8u52Zny-8" target="oHuJFypylbSUv3SkSEwV-33" edge="1">
+            <mxGeometry x="-0.7617" y="59" width="240" relative="1" as="geometry">
+              <mxPoint x="560" y="755" as="sourcePoint" />
+              <mxPoint x="718" y="725" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. HTTP - response" c4Description="HTTP page and resourses" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-35">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.091;exitY=0.665;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.46;entryY=0.995;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-33" target="gCeQcle9XDZXH8u52Zny-8" edge="1">
+            <mxGeometry x="0.2874" y="23" width="240" relative="1" as="geometry">
+              <mxPoint x="735" y="752" as="sourcePoint" />
+              <mxPoint x="561" y="770" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="643" y="683" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" label="&#xa;" id="oHuJFypylbSUv3SkSEwV-36">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-33" edge="1">
+            <mxGeometry width="240" relative="1" as="geometry">
+              <mxPoint x="1120" y="735" as="sourcePoint" />
+              <mxPoint x="1330" y="830" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="850" y="830" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Makes SQL query anout users, auth data" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-37">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.011;entryY=0.695;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-33" target="gCeQcle9XDZXH8u52Zny-7" edge="1">
+            <mxGeometry x="0.5927" y="-7" width="240" relative="1" as="geometry">
+              <mxPoint x="1240" y="650" as="sourcePoint" />
+              <mxPoint x="1680" y="600" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="980" y="655" />
+                <mxPoint x="980" y="740" />
+                <mxPoint x="1410" y="740" />
+                <mxPoint x="1410" y="563" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Answer by SQL query from DB" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-38">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.951;entryY=0.65;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.015;exitY=0.822;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="gCeQcle9XDZXH8u52Zny-7" target="oHuJFypylbSUv3SkSEwV-33" edge="1">
+            <mxGeometry x="0.2805" y="10" width="240" relative="1" as="geometry">
+              <mxPoint x="1739" y="559" as="sourcePoint" />
+              <mxPoint x="1220" y="665" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1660" y="579" />
+                <mxPoint x="1660" y="600" />
+                <mxPoint x="1440" y="600" />
+                <mxPoint x="1440" y="760" />
+                <mxPoint x="940" y="760" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Администратор" c4Type="Person" c4Description="Человек, который управляет новостями" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-42">
+          <mxCell style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;points=[[0.5,0,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="40" y="510" width="200" height="180" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="oHuJFypylbSUv3SkSEwV-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-42" target="gCeQcle9XDZXH8u52Zny-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="630" />
+              <mxPoint x="470" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oHuJFypylbSUv3SkSEwV-44" value="Заходит на страницу дашборда" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oHuJFypylbSUv3SkSEwV-43" vertex="1" connectable="0">
+          <mxGeometry x="-0.2492" y="-1" relative="1" as="geometry">
+            <mxPoint x="-81" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oHuJFypylbSUv3SkSEwV-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.001;entryY=0.327;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="gCeQcle9XDZXH8u52Zny-4" target="gCeQcle9XDZXH8u52Zny-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530" y="440" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="470" y="400" />
+              <mxPoint x="470" y="439" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oHuJFypylbSUv3SkSEwV-46" value="Заходит на главную страницу" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oHuJFypylbSUv3SkSEwV-45" vertex="1" connectable="0">
+          <mxGeometry x="-0.4039" y="3" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <object placeholders="1" c4Name="БД Выданных Копий" c4Type="Container" c4Technology="e.g. PostgreSQL" c4Description="Хранит информацию о выданных зарегистрированных копиях" label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%:&amp;nbsp;%c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-50">
+          <mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=12;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;metaEdit=1;points=[[0.5,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.5,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];resizable=0;" parent="1" vertex="1">
+            <mxGeometry x="1910" y="90" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Name="Система выдачи и регистраций копий" c4Type="Container" c4Technology="webSocket" c4Description="Создаёт регистрацию в базе, либо выдаёт существующую. Запаковывает установщик с вшитым номером идентификационным " label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-53">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;metaEdit=1;resizable=0;points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];" parent="1" vertex="1">
+            <mxGeometry x="1370" y="100" width="240" height="120" as="geometry" />
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. websocket - request" c4Description="Request to save download record " label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-55">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.424;exitY=0.013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-4" target="oHuJFypylbSUv3SkSEwV-53" edge="1">
+            <mxGeometry x="-0.1661" y="20" width="240" relative="1" as="geometry">
+              <mxPoint x="773" y="205" as="sourcePoint" />
+              <mxPoint x="931" y="175" as="targetPoint" />
+              <mxPoint as="offset" />
+              <Array as="points">
+                <mxPoint x="1015" y="160" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. websocket - response" c4Description="Status сохранения" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-56">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-53" target="oHuJFypylbSUv3SkSEwV-4" edge="1">
+            <mxGeometry x="-0.0094" y="28" width="240" relative="1" as="geometry">
+              <mxPoint x="970" y="240" as="sourcePoint" />
+              <mxPoint x="774" y="220" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1030" y="190" />
+              </Array>
+              <mxPoint x="20" y="-8" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Makes SQL query to create download record" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-57">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;exitX=0.993;exitY=0.37;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.004;entryY=0.409;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-53" target="oHuJFypylbSUv3SkSEwV-50" edge="1">
+            <mxGeometry x="-0.1064" y="20" width="240" relative="1" as="geometry">
+              <mxPoint x="1630" y="383" as="sourcePoint" />
+              <mxPoint x="2160" y="280" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1741" y="144" />
+                <mxPoint x="1840" y="144" />
+                <mxPoint x="1840" y="139" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object placeholders="1" c4Type="Relationship" c4Technology="e.g. TCP" c4Description="e.g. Answer by SQL query from DB" label="&lt;div style=&quot;text-align: left&quot;&gt;&lt;div style=&quot;text-align: center&quot;&gt;&lt;b&gt;%c4Description%&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;[%c4Technology%]&lt;/div&gt;&lt;/div&gt;" id="oHuJFypylbSUv3SkSEwV-58">
+          <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeWidth=1;endFill=1;strokeColor=#828282;elbow=vertical;metaEdit=1;endSize=14;startSize=14;jumpStyle=arc;jumpSize=16;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.591;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="oHuJFypylbSUv3SkSEwV-50" target="oHuJFypylbSUv3SkSEwV-53" edge="1">
+            <mxGeometry x="-0.0007" y="19" width="240" relative="1" as="geometry">
+              <mxPoint x="2160" y="310" as="sourcePoint" />
+              <mxPoint x="1641" y="416" as="targetPoint" />
+              <Array as="points">
+                <mxPoint x="1771" y="161" />
+                <mxPoint x="1610" y="160" />
+              </Array>
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

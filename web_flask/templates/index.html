@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obo-Space</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Obo-Space</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Obo-Space</h1>
+            <p class="hero-text">Когда-то люди стремились выше, не взирая на деньги.<br>
+                Но время показало, кто долетит до своей мечты, а кто вынеживает её!</p>
+            <p class="hero-subtext">Узнай, кто до летел до "Мечта-1"</p>
+            <button class="cta-button" onclick="scrollToRegistration()">Получить доступ к игре</button>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>Что за "Мечта-1"</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Игра о последствиях космической гонки для одной из стран-участников. Проект "Мечта-1" был самым важным проектом как с точки зрения науки, так и космического прогресса. Однако жизнь идет и прогресс тоже, и появляется мусор твоего прошлого который, как бы ты не пытался игнорировать и наполнил к себе. Начинало огромная компания, а заканчивает все два человека. Тогда им придется найти ему применение, а вот где в мусоре или в твоей новой истории...</p>
+                <p class="about-cta">Решать тебе!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Особенности игры</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="{{ url_for('static', filename='img/icons/rocket-icon.png') }}" alt="Миссии">
+                <h3>Миссии - головоломки</h3>
+                <p>Решай интересные головоломки на орбите земли, захватывая Советскую Космическую Станцию</p>
+            </div>
+            <div class="feature-card">
+                <img src="{{ url_for('static', filename='img/icons/globe-icon.png') }}" alt="Общайся">
+                <h3>Общайся Земля-Космос</h3>
+                <p>Общайся через Discord или в игре без использования сторонних программ</p>
+            </div>
+            <div class="feature-card">
+                <img src="{{ url_for('static', filename='img/icons/astronaut-icon.png') }}" alt="Два космических бро">
+                <h3>Два космических бро!</h3>
+                <p>Играй с другом, выбери подходящую роль и играй через интернет!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('{{ url_for('static', filename='img/gallery/game1.webp') }}')"></div>
+            <div class="gallery-item" style="background-image: url('{{ url_for('static', filename='img/gallery/game2.webp') }}')"></div>
+            <div class="gallery-item" style="background-image: url('{{ url_for('static', filename='img/gallery/game3.webp') }}')"></div>
+        </div>
+    </section>
+
+    <!-- Access Form Section -->
+    <section class="access-form" id="contact">
+        <h2>Получи доступ сейчас!</h2>
+        <p>Отправляйся в космическое путешествие с другом!</p>
+        <form id="registrationForm" class="signup-form">
+            <div class="form-group">
+                <input type="text" id="fullName" name="full_name" placeholder="Full Name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="accept_license" required>
+                    Accept User Usage License
+                </label>
+                <label>
+                    <input type="checkbox" name="accept_age" required>
+                    Accept Age and More about the Game
+                </label>
+            </div>
+            <button type="submit" class="cta-button">Получить доступ к игре</button>
+        </form>
+        <div id="formStatus" class="form-status"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Obo-space. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                full_name: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                accept_license: document.querySelector('input[name="accept_license"]').checked,
+                accept_age: document.querySelector('input[name="accept_age"]').checked
+            };
+
+            try {
+                const response = await fetch('/api/v1/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                
+                const statusDiv = document.getElementById('formStatus');
+                if (data.success) {
+                    statusDiv.innerHTML = 'Registration successful! Redirecting...';
+                    statusDiv.className = 'form-status success';
+                    setTimeout(() => {
+                        window.location.href = '/success';
+                    }, 2000);
+                } else {
+                    statusDiv.innerHTML = data.message;
+                    statusDiv.className = 'form-status error';
+                }
+            } catch (error) {
+                const statusDiv = document.getElementById('formStatus');
+                statusDiv.innerHTML = 'Error submitting form. Please try again.';
+                statusDiv.className = 'form-status error';
+            }
+        });
+
+        function scrollToRegistration() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

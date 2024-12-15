@@ -1,0 +1,9 @@
+footage/*
+web_flask/settings.py
+web_flask/start.bat
+web_flask/venv/
+web_flask/__pycache__/
+web_flask/blueprints/__pycache__/
+web_flask/blueprints/api_bluep/__pycache__/
+web_flask/blueprints/web_bluep/__pycache__/
+

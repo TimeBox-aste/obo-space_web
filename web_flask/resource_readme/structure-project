@@ -1,0 +1,16 @@
+static/
+├── css/
+│   └── main.css
+├── fonts/
+│   ├── vcrosdmonorusbydaymarius.ttf
+│   └── vcrosdmonorus_vhsicons.ttf
+├── img/
+│   ├── space-background.webm
+│   ├── icons/
+│   │   ├── rocket-icon.png
+│   │   ├── globe-icon.png
+│   │   └── astronaut-icon.png
+│   └── gallery/
+│       ├── game1.webp
+│       ├── game2.webp
+│       └── game3.webp
