@@ -10,7 +10,7 @@ app = Flask('obo-space-web')
 
 app.config['SECRET_KEY'] = settings.SECRET_KEY
 # app.config['UPLOAD_FOLDER'] = 'uploads'
-app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp', 'webm'}
+# app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp', 'webm'}
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
