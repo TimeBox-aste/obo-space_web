@@ -1,5 +1,6 @@
 footeage/*
 web_flask/settings.py
+notification_service/settings.py
 web_flask/start.bat
 web_flask/venv/
 web_flask/__pycache__/
