@@ -132,14 +132,13 @@
                 const data = await response.json();
                 
                 if (data.success) {
-                    statusDiv.innerHTML = data.message;
+                    const formSection = document.getElementById('registrationForm');
+                    formSection.innerHTML = '<div class="success-message">' +
+                        '<h3>Thank you for joining the Space Program!</h3>' +
+                        '<p>We\'re excited to have you on board.</p>' +
+                        '</div>';
                     statusDiv.className = 'form-status success';
-                    document.getElementById('registrationForm').reset();
-                    
-                    // Optional: Redirect after showing success message
-                    setTimeout(() => {
-                        window.location.href = '/success';
-                    }, 3000);
+                    statusDiv.innerHTML = data.message;
                 } else {
                     statusDiv.innerHTML = data.message;
                     statusDiv.className = 'form-status error';

@@ -18,4 +18,5 @@ COPY web_flask/ .
 ENV PYTHONPATH=/app
 
 # Run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["python", "run.py"]
+# CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]

@@ -6,9 +6,9 @@ services:
     container_name: postgres
     restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-copyshare}
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: copyshare
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
@@ -24,11 +24,16 @@ services:
       - "5672:5672"   # AMQP protocol port
       - "15672:15672" # Management UI port
     volumes:
-      - ./docker/rabbitmq/data:/var/lib/rabbitmq
+      - ./docker/rabbitmq/data:/var/lib/rabbitmq_user
       - ./docker/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json
-      - ./docker/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf 
+      - ./docker/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
     networks:
       - app_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
 
   web_flask:
     build: 
@@ -40,7 +45,7 @@ services:
       - postgres
       - rabbitmq
     environment:
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-copyshare}
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/copyshare
       - RABBITMQ_HOST=rabbitmq
     volumes:
       - ./logs/web_flask:/app/logs
@@ -49,6 +54,11 @@ services:
       - "5000:5000"
     networks:
       - app_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
 
   notification_service:
     build:
@@ -60,13 +70,18 @@ services:
       - postgres
       - rabbitmq
     environment:
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-copyshare}
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/copyshare
       - RABBITMQ_HOST=rabbitmq
     volumes:
       - ./logs/notification_service:/app/logs
       - ./notification_service:/app
     networks:
       - app_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
 
   nginx:
     image: nginx:latest
@@ -83,7 +98,11 @@ services:
       - web_flask
     networks:
       - app_network
-
+    deploy:
+      resources:
+        limits:
+          cpus: '0.01'
+          memory: 128M
 
 networks:
   app_network:
