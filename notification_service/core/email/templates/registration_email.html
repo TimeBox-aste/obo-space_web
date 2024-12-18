@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .status {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Скачайте бета-версию игры</h2>
+        
+        <p>Пожалуйста, нажмите кнопку ниже, чтобы скачать вашу персональную бета-версию игры:</p>
+        
+        <a href="{{ verification_link }}" class="button">Скачать бета-версию игры</a>
+        
+        <p>Если вы не запрашивали эту ссылку, пожалуйста, проигнорируйте это письмо.</p>
+    </div>
+</body>
+</html> 
