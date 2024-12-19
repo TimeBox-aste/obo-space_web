@@ -60,6 +60,7 @@ class EmailSender:
             
             html_content = template.render(
                 verification_link=download_link,
+                BASE_URL=BASE_URL
             )
             
             subject = "Скачайте бета-версию игры"
@@ -69,11 +70,12 @@ class EmailSender:
             
             # Add timeout for SMTP operations
             with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10) as server:
-                server.ehlo()  # Say hello to the server
-                if server.has_extn('STARTTLS'):  # Check if TLS is supported
-                    server.starttls()
-                    server.ehlo()  # Need to say hello again after TLS
+                # if server.has_extn('STARTTLS'):  # Check if TLS is supported
+                #     server.starttls()
+                #     server.ehlo()  # Need to say hello again after TLS
                 try:
+                    server.starttls()
+                    server.ehlo()
                     server.login(SMTP_USERNAME, SMTP_PASSWORD)
                 except smtplib.SMTPAuthenticationError:
                     self.logger.error("SMTP authentication failed")

@@ -5,4 +5,3 @@ sqlalchemy
 asyncpg
 psycopg2-binary
 jinja2
-signal

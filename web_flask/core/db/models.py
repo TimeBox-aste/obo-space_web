@@ -45,6 +45,8 @@ class Notifications(Base, BaseMixin):
     id_copy_shared = Column(Integer, ForeignKey('copyshared.id', ondelete='CASCADE'), nullable=False)
     id_status_sending = Column(Integer, ForeignKey('statuses.id'), nullable=False)
     dt_sent = Column(DateTime, default=datetime.utcnow, nullable=False)
+    attempts = Column(Integer, default=0, nullable=False)
+    max_attempts = Column(Integer, default=3, nullable=False)
     
     copy = relationship('CopyShared', back_populates='notifications')
     status = relationship('Statuses', back_populates='notifications')

@@ -1,11 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.asyncio import async_sessionmaker
 from sqlalchemy import select
-from models import UserData
-from notification_service.settings import DATABASE_URL, ASYNC_DATABASE_URL
+from core.db.models import UserData, Base
+from settings import DATABASE_URL, ASYNC_DATABASE_URL
 from sqlalchemy.orm import Session
 from core.connector.postgresql_connector import db_operation
 
@@ -29,12 +28,15 @@ def create_user(user_data: dict, session: Session):
     return user
 
 # Asynchronous usage
-@db_operation(is_async=True)
-async def get_users_by_status(status: str, session: AsyncSession):
-    result = await session.execute(
-        select(UserData).filter(UserData.status == status)
-    )
-    return result.scalars().all()
+# @db_operation(is_async=True)
+# async def get_users_by_status(status: str, session: AsyncSession):
+#     result = await session.execute(
+#         select(UserData).filter(UserData.status == status)
+#     )
+#     return result.scalars().all()
+
+def get_user_by_email(email: str, session: Session):
+    return session.query(UserData).filter(UserData.email == email).first()
 
 # # Direct connector usage
 # with db.get_db() as session:

@@ -1,7 +1,7 @@
 from typing import Optional, Any, Union
 import asyncio
 from functools import wraps
-from contextlib import contextmanager
+from contextlib import contextmanager, asynccontextmanager
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
@@ -27,7 +27,6 @@ class PostgreSQLConnector:
         
         self._AsyncSessionLocal = async_sessionmaker(
             self._async_engine,
-            class_=AsyncSession,
             expire_on_commit=False
         )
 
@@ -44,6 +43,7 @@ class PostgreSQLConnector:
         finally:
             session.close()
 
+    @asynccontextmanager
     async def get_async_db(self) -> AsyncSession:
         """Asynchronous database session context manager"""
         async with self._AsyncSessionLocal() as session:

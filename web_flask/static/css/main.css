@@ -267,3 +267,68 @@ footer {
     background-color: rgba(255, 0, 0, 0.1);
     color: #ff4d4d;
 }
+
+/* Mobile Navigation */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .nav-links a {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Mobile Features Grid */
+@media screen and (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile Gallery Grid */
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .gallery-item {
+        aspect-ratio: 16/9;
+    }
+}
+
+/* Mobile Padding Adjustments */
+@media screen and (max-width: 768px) {
+    .about,
+    .features,
+    .gallery,
+    .access-form {
+        padding: 3rem 5%;
+    }
+
+    .signup-form {
+        padding: 0 1rem;
+    }
+}

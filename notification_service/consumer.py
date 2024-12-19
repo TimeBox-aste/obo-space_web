@@ -1,216 +1,156 @@
 import json
-import time
-import threading
-from core.connector.rmq_connector import RabbitMQClient
-from core.db.models import UserData, CopyShared, Notifications, Statuses
-from core.connector.postgresql_connector import PostgreSQLConnector, db_operation
-from sqlalchemy.orm import Session
-from datetime import datetime, timezone
-from core.email.email_sender import EmailSender
 import logging
-import queue
+import time
+import traceback
+from typing import Dict, Any
+import uuid  # Add this import at the top
 
+from pika import PlainCredentials, BlockingConnection, ConnectionParameters
+from pika.exceptions import AMQPConnectionError
+
+from core.connector.postgresql_connector import db_operation
+from core.email.email_sender import EmailSender
 from settings import RABBITMQ_CONFIG
-
+from sqlalchemy.orm import Session
+from core.db.models import UserData, CopyShared, Notifications
+from core.db.utils import create_user, get_user_by_email
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-log_queue = queue.Queue()  # Create a queue for logging
+logger = logging.getLogger(__name__)
 
-def log_worker():
-    """Thread function to handle logging."""
-    while True:
-        record = log_queue.get()
-        if record is None:  # Exit condition
-            break
-        logger = logging.getLogger(record.name)
-        logger.handle(record)
-
-# Start the logging thread
-logging_thread = threading.Thread(target=log_worker)
-logging_thread.start()
-
-class RegistrationProcessor:
-    def __init__(self, rabbitmq_config):
-        self.processing = False
-        self.rabbitmq_client = RabbitMQClient(rabbitmq_config)
-        self.db = PostgreSQLConnector()
+class EmailConsumer:
+    def __init__(self):
         self.email_sender = EmailSender()
-        
+        self.connection = None
+        self.channel = None
+        self.retry_delay = 60  # 1 minute between retries
+
+    def connect(self):
+        """Establish connection to RabbitMQ"""
+        if not self.connection or self.connection.is_closed:
+            credentials = PlainCredentials(
+                RABBITMQ_CONFIG['username'],
+                RABBITMQ_CONFIG['password']
+            )
+            self.connection = BlockingConnection(
+                ConnectionParameters(
+                    host=RABBITMQ_CONFIG['host'],
+                    port=RABBITMQ_CONFIG['port'],
+                    credentials=credentials
+                )
+            )
+            self.channel = self.connection.channel()
+            self.channel.queue_declare(
+                queue=RABBITMQ_CONFIG['queue_name'],
+                durable=True
+            )
+
     @db_operation(is_async=False)
-    def process_registration(self, data, registration_id, session: Session):
-        """
-        Process a registration request and store it in the database
+    def process_message(self, message_data: Dict[str, Any], session: Session) -> None:
+        """Process received message and handle email sending with retries"""
+
         
-        Args:
-            data (dict): Registration data containing email and file information
-            registration_id (str): Unique identifier for the registration
-            session (Session): Database session provided by the decorator
         """
-        try:
-            # Check if user exists, if not create new user
-            user = session.query(UserData).filter_by(email=data['email']).first()
-            if not user:
-                user = UserData(
-                    email=data['email'],
-                    nickname=data.get('nickname', data['email'].split('@')[0]),
-                    is_active=True
-                )
-                session.add(user)
-                session.flush()  # Flush to get the user ID
+        sample message_data:
+        {'full_name': 'Ковалёв Евгений', 'email': 'ao.200390@gmail.com', 'accept_license': True, 'accept_age': True, 'timestamp': '2024-12-18T21:08:49.865883'}
+        """
 
-            # Create copy shared record
-            copy_shared = CopyShared(
+        email = message_data.get('email')
+        full_name = message_data.get('full_name')
+        
+        if not email:
+            logger.error(f"Invalid message format: {message_data}")
+            return
+
+        # Check for existing user or create new one
+        user = get_user_by_email(email, session)
+        if not user:
+            user = create_user(
+                user_data={
+                    'email': email,
+                    'nickname': full_name
+                },
+                session=session
+            )
+            session.add(user)
+            session.flush()  # Flush to get the user.id
+
+        # Check for existing CopyShared or create new one
+        copy_share = session.query(CopyShared).filter(CopyShared.id_user == user.id).first()
+        if not copy_share:
+            copy_share = CopyShared(
                 id_user=user.id,
-                name_file_uuid=registration_id
+                name_file_uuid=str(uuid.uuid4())
             )
-            session.add(copy_shared)
-            session.flush()
+            session.add(copy_share)
+            session.commit()
+        
+        notification = Notifications(
+            id_copy_shared=copy_share.id,
+            id_status_sending=1
+        )
+        session.add(notification)
+        session.commit()
 
-            # Get or create initial status
-            initial_status = session.query(Statuses).filter_by(name='PENDING').first()
-            if not initial_status:
-                initial_status = Statuses(
-                    name='PENDING',
-                    description='Registration is being processed'
-                )
-                session.add(initial_status)
-                session.flush()
+        # return copy_share.uuid
 
-            # Create notification record
-            notification = Notifications(
-                id_copy_shared=copy_shared.id,
-                id_status_sending=initial_status.id,
-                dt_sent=datetime.now(timezone.utc)
-            )
-
-            # Send registration email
-            email_sent = self.email_sender.send_registration_email(
-                to_email=data['email'],
-                uuid=registration_id
-            )
-            
-            if not email_sent:
-                raise Exception("Failed to send registration email")
-
-            session.add(notification)
-
-            logging.info(f"Successfully processed registration {registration_id} for: {data['email']}")
-            log_queue.put(logging.LogRecord('RegistrationProcessor', logging.INFO, '', 0, f"Successfully processed registration {registration_id} for: {data['email']}", None, None))
-            return True
-
-        except Exception as e:
-            logging.error(f"Error processing registration: {str(e)}")
-            log_queue.put(logging.LogRecord('RegistrationProcessor', logging.ERROR, '', 0, f"Error processing registration: {str(e)}", None, None))
-            session.rollback()
-            raise
-
-    def update_registration_status(self, registration_id, status_name, session: Session):
-        """Update the status of a registration"""
+    def callback(self, ch, method, properties, body):
+        """Callback function for processing received messages"""
         try:
-            # Get the copy shared record
-            copy_shared = session.query(CopyShared).filter_by(name_file_uuid=registration_id).first()
-            if not copy_shared:
-                raise ValueError(f"No registration found with ID: {registration_id}")
-
-            # Get or create status
-            status = session.query(Statuses).filter_by(name=status_name).first()
-            if not status:
-                status = Statuses(
-                    name=status_name,
-                    description=f"Status: {status_name}"
-                )
-                session.add(status)
-                session.flush()
-
-            # Get user email from copy_shared relationship
-            user_email = copy_shared.user.email
-
-            # Send status update email
-            email_sent = self.email_sender.send_registration_email(
-                to_email=user_email,
-                uuid=registration_id,
-                status=status_name
-            )
+            message_data = json.loads(body)
+            logger.info(f"Received message: {message_data}")
             
-            if not email_sent:
-                print(f"Warning: Failed to send status update email to {user_email}")
-
-            # Create new notification with updated status
-            notification = Notifications(
-                id_copy_shared=copy_shared.id,
-                id_status_sending=status.id,
-                dt_sent=datetime.utcnow()
-            )
-            session.add(notification)
-
-            logging.info(f"Updated registration {registration_id} status to {status_name}")
-            log_queue.put(logging.LogRecord('RegistrationProcessor', logging.INFO, '', 0, f"Updated registration {registration_id} status to {status_name}", None, None))
-            return True
-
+            self.process_message(message_data)
+            
+            # Acknowledge the message
+            ch.basic_ack(delivery_tag=method.delivery_tag)
+            
+        except json.JSONDecodeError as e:
+            logger.error(f"Invalid JSON format: {body}"+("\n".join([
+                    "-"*10,
+                    str(e),
+                    str(traceback.format_exc()),
+                    "-"*10,
+                ])))
+            ch.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
         except Exception as e:
-            logging.error(f"Error updating registration status: {str(e)}")
-            log_queue.put(logging.LogRecord('RegistrationProcessor', logging.ERROR, '', 0, f"Error updating registration status: {str(e)}", None, None))
-            session.rollback()
-            raise
+            logger.error(f"Error processing message: "+("\n".join([
+                    "-"*10,
+                    str(e),
+                    str(traceback.format_exc()),
+                    "-"*10,
+                ])))
+            ch.basic_nack(delivery_tag=method.delivery_tag, requeue=True)
 
-    def process_queue(self):
-        """Process messages from the queue"""
-        while self.processing:
+    def start_consuming(self):
+        """Start consuming messages from the queue"""
+        while True:
             try:
-                self.rabbitmq_client.connect()
-                
-                def callback(ch, method, properties, body):
-                    try:
-                        data = json.loads(body)
-                        registration_id = properties.message_id
-                        
-                        with self.db.get_db() as session:
-                            self.process_registration(data, registration_id, session=session)
-                            # Update status to COMPLETED after successful processing
-                            self.update_registration_status(
-                                registration_id, 
-                                'COMPLETED', 
-                                session=session
-                            )
-                        
-                        ch.basic_ack(delivery_tag=method.delivery_tag)
-                    except Exception as e:
-                        print(f"Error processing message: {str(e)}")
-                        # Update status to FAILED on error
-                        with self.db.get_db() as session:
-                            self.update_registration_status(
-                                registration_id, 
-                                'FAILED', 
-                                session=session
-                            )
-                        ch.basic_nack(delivery_tag=method.delivery_tag)
-
-                self.rabbitmq_client.channel.basic_qos(prefetch_count=1)
-                self.rabbitmq_client.channel.basic_consume(
+                self.connect()
+                self.channel.basic_qos(prefetch_count=1)
+                self.channel.basic_consume(
                     queue=RABBITMQ_CONFIG['queue_name'],
-                    on_message_callback=callback
+                    on_message_callback=self.callback
                 )
                 
-                logging.info("Started consuming messages...")
-                log_queue.put(logging.LogRecord('RegistrationProcessor', logging.INFO, '', 0, "Started consuming messages...", None, None))
-                self.rabbitmq_client.channel.start_consuming()
-
-            except Exception as e:
-                logging.error(f"Queue processing error: {str(e)}")
-                log_queue.put(logging.LogRecord('RegistrationProcessor', logging.ERROR, '', 0, f"Queue processing error: {str(e)}", None, None))
+                logger.info("Started consuming messages...")
+                self.channel.start_consuming()
+                
+            except AMQPConnectionError:
+                logger.error("Connection to RabbitMQ failed. Retrying in 5 seconds...")
                 time.sleep(5)
+            except Exception as e:
+                logger.error(f"Unexpected error: {str(e)}"+("\n".join([
+                    "-"*10,
+                    str(e),
+                    str(traceback.format_exc()),
+                    "-"*10,
+                ])))
+                time.sleep(5)
+            finally:
+                if self.connection and not self.connection.is_closed:
+                    self.connection.close()
 
-    def cleanup(self):
-        """Cleanup resources"""
-        self.processing = False
-        self.db.dispose()
-        log_queue.put(None)  # Signal the logging thread to exit
-        logging_thread.join()  # Wait for the logging thread to finish
-
-    def start(self):
-        """Start the registration processor"""
-        if not self.processing:
-            self.processing = True
-            thread = threading.Thread(target=self.process_queue)
-            thread.daemon = True
-            thread.start()
+if __name__ == "__main__":
+    consumer = EmailConsumer()
+    consumer.start_consuming()

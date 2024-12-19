@@ -1,9 +1,11 @@
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, event
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, event, func
+from sqlalchemy.ext.asyncio import AsyncAttrs
+from sqlalchemy.orm import relationship, DeclarativeBase  # declarative_base,
 from sqlalchemy.ext.declarative import declared_attr
 
-Base = declarative_base()
+class Base(AsyncAttrs, DeclarativeBase):
+    pass
 
 class TimestampMixin:
     """Mixin for adding timestamp fields to models"""
@@ -44,7 +46,9 @@ class Notifications(Base, BaseMixin):
     """Notifications model with enhanced tracking"""
     id_copy_shared = Column(Integer, ForeignKey('copyshared.id', ondelete='CASCADE'), nullable=False)
     id_status_sending = Column(Integer, ForeignKey('statuses.id'), nullable=False)
-    dt_sent = Column(DateTime, default=datetime.utcnow, nullable=False)
+    dt_sent = Column(DateTime, default=datetime.now, server_default=func.now(), nullable=False)
+    attempts = Column(Integer, default=0, server_default='0', nullable=False)
+    max_attempts = Column(Integer, default=3, server_default='3', nullable=False)
     
     copy = relationship('CopyShared', back_populates='notifications')
     status = relationship('Statuses', back_populates='notifications')

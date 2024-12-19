@@ -30,7 +30,8 @@ def init_db(database_url):
         default_statuses = [
             {'name': 'pending', 'description': 'Notification is pending'},
             {'name': 'sent', 'description': 'Notification was sent successfully'},
-            {'name': 'failed', 'description': 'Notification failed to send'}
+            {'name': 'failed', 'description': 'Notification failed to send'},
+            {'name': 'success', 'description': 'Notification was sent successfully'}
         ]
         
         for status in default_statuses:

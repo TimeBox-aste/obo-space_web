@@ -1,14 +1,32 @@
-from consumer import RegistrationProcessor
+from consumer import EmailConsumer
+from notification_scheduler import NotificationSchedulerService
 from settings import RABBITMQ_CONFIG
-import time
+import asyncio
+import logging
 
-# Initialize and start the processor
-processor = RegistrationProcessor(RABBITMQ_CONFIG)
-processor.start()
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
-try:
-    # Keep the main thread alive
+async def main():
     while True:
-        time.sleep(1)
-except KeyboardInterrupt:
-    processor.cleanup()
+        try:
+            # Initialize and start the email consumer
+            consumer = EmailConsumer()
+            # consumer.start_consuming()
+            async_thread = asyncio.to_thread(consumer.start_consuming)
+            task_consumer = asyncio.create_task(async_thread)
+
+            # Initialize and start the notification scheduler
+            notification_scheduler = NotificationSchedulerService(consumer.email_sender)
+            task_notification_scheduler = asyncio.create_task(notification_scheduler.start())
+            res = await asyncio.gather(task_consumer, task_notification_scheduler, return_exceptions=True)
+            logger.info(res)
+        except Exception as e:
+            logger.error(e)
+
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("Processor stopped.")
