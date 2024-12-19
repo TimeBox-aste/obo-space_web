@@ -116,6 +116,10 @@
                 accept_age: document.querySelector('input[name="accept_age"]').checked
             };
 
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.innerHTML = 'Submitting registration...';
+            statusDiv.className = 'form-status';
+
             try {
                 const response = await fetch('/api/v1/register', {
                     method: 'POST',
@@ -127,19 +131,19 @@
 
                 const data = await response.json();
                 
-                const statusDiv = document.getElementById('formStatus');
                 if (data.success) {
-                    statusDiv.innerHTML = 'Registration successful! Redirecting...';
+                    const formSection = document.getElementById('registrationForm');
+                    formSection.innerHTML = '<div class="success-message">' +
+                        '<h3>Thank you for joining the Space Program!</h3>' +
+                        '<p>We\'re excited to have you on board.</p>' +
+                        '</div>';
                     statusDiv.className = 'form-status success';
-                    setTimeout(() => {
-                        window.location.href = '/success';
-                    }, 2000);
+                    statusDiv.innerHTML = data.message;
                 } else {
                     statusDiv.innerHTML = data.message;
                     statusDiv.className = 'form-status error';
                 }
             } catch (error) {
-                const statusDiv = document.getElementById('formStatus');
                 statusDiv.innerHTML = 'Error submitting form. Please try again.';
                 statusDiv.className = 'form-status error';
             }

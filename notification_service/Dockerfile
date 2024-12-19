@@ -8,15 +8,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-COPY web_flask/requirements.txt .
+COPY notification_service/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY web_flask/ .
-
-# Set Python path to include the current directory
-ENV PYTHONPATH=/app
+COPY notification_service/ .
 
 # Run the application
-# CMD ["python", "run.py"]
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["python", "run.py"] 

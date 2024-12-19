@@ -1,0 +1,81 @@
+{
+  "rabbit_version": "3.13.7",
+  "rabbitmq_version": "3.13.7",
+  "product_name": "RabbitMQ",
+  "product_version": "3.13.7",
+  "users": [
+      {
+          "name": "web_service",
+          "password_hash": "ENYgDFtC3G+kanq4aEfBTlUuETXEGyLVK9o+/YmFvc9Dpabm",
+          "hashing_algorithm": "rabbit_password_hashing_sha256",
+          "tags": [
+              "administrator"
+          ],
+          "limits": {}
+      },
+      {
+          "name": "rabbitmq_user",
+          "password_hash": "NeUza8L72u4CbF0t1t6jjTns6+E2zjqlOQonGfFy4FE2u+Kd",
+          "hashing_algorithm": "rabbit_password_hashing_sha256",
+          "tags": [
+              "administrator"
+          ],
+          "limits": {}
+      },
+      {
+          "name": "notification_service",
+          "password_hash": "YMU7Ty6K80NLntFwExm34eTuxUIszKb6WgMLj9B2NrXwQOPh",
+          "hashing_algorithm": "rabbit_password_hashing_sha256",
+          "tags": [
+              "administrator"
+          ],
+          "limits": {}
+      }
+  ],
+  "vhosts": [
+      {
+          "name": "/",
+          "description": "Default virtual host",
+          "tags": [],
+          "metadata": {
+              "description": "Default virtual host",
+              "tags": []
+          }
+      }
+  ],
+  "permissions": [
+      {
+          "user": "web_service",
+          "vhost": "/",
+          "configure": ".*",
+          "write": ".*",
+          "read": ".*"
+      },
+      {
+          "user": "rabbitmq_user",
+          "vhost": "/",
+          "configure": ".*",
+          "write": ".*",
+          "read": ".*"
+      },
+      {
+          "user": "notification_service",
+          "vhost": "/",
+          "configure": ".*",
+          "write": ".*",
+          "read": ".*"
+      }
+  ],
+  "policies": [],
+  "queues": [
+      {
+          "name": "web.registration.queue",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false,
+          "arguments": {}
+      }
+  ],
+  "exchanges": [],
+  "bindings": []
+}

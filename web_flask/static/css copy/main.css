@@ -4,16 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-@font-face {
-    font-family: 'VCR OSD Mono';
-    src: url('../fonts/vcrosdmonorusbydaymarius.ttf') format('truetype'),
-         url('../fonts/vcrosdmonorus_vhsicons.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 body {
-    font-family: 'VCR OSD Mono', monospace;
+    font-family: Arial, sans-serif;
     background-color: #0a0d14;
     color: #ffffff;
     line-height: 1.6;
@@ -69,7 +62,7 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('/static/img/space-background.webp') center/cover;
+    background: url('space-background.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,7 +196,7 @@ body {
 .access-form {
     padding: 5rem 10%;
     text-align: center;
-    background: url('/static/img/space-background.webp') center/cover;
+    background: url('space-background.webm') center/cover;
     position: relative;
 }
 
@@ -266,69 +259,4 @@ footer {
     display: block;
     background-color: rgba(255, 0, 0, 0.1);
     color: #ff4d4d;
-}
-
-/* Mobile Navigation */
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    .nav-links {
-        margin-top: 1rem;
-    }
-
-    .nav-links a {
-        margin-left: 1rem;
-        margin-right: 1rem;
-        font-size: 0.9rem;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-text {
-        font-size: 1rem;
-        padding: 0 1rem;
-    }
-}
-
-/* Mobile Features Grid */
-@media screen and (max-width: 768px) {
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .feature-card {
-        padding: 1.5rem;
-    }
-}
-
-/* Mobile Gallery Grid */
-@media screen and (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .gallery-item {
-        aspect-ratio: 16/9;
-    }
-}
-
-/* Mobile Padding Adjustments */
-@media screen and (max-width: 768px) {
-    .about,
-    .features,
-    .gallery,
-    .access-form {
-        padding: 3rem 5%;
-    }
-
-    .signup-form {
-        padding: 0 1rem;
-    }
 }

@@ -1,5 +1,5 @@
 import os
-from flask import Flask, send_from_directory, abort
+from flask import Flask, send_from_directory, abort, request
 
 from blueprints.api_bluep.endpoint import endpoint as api_bluep
 from blueprints.web_bluep.endpoint import endpoint as web_bluep
@@ -10,7 +10,7 @@ app = Flask('obo-space-web')
 
 app.config['SECRET_KEY'] = settings.SECRET_KEY
 # app.config['UPLOAD_FOLDER'] = 'uploads'
-# app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp', 'webm'}
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp', 'webm'}
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
@@ -25,4 +25,4 @@ app.register_blueprint(api_bluep)
 app.register_blueprint(web_bluep)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
