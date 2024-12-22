@@ -16,7 +16,7 @@ COPY web_flask/ .
 
 # Set Python path to include the current directory
 ENV PYTHONPATH=/app
-
+# RUN python migration.py
 # Run the application
 # CMD ["python", "run.py"]
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "run:app"]
