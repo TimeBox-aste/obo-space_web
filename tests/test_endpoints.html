@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module test_endpoints</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>test_endpoints</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cprojects%5Cobo-space_web%5Ctests%5Ctest_endpoints.py">d:\projects\obo-space_web\tests\test_endpoints.py</a></font></td></tr></table>
+    <p><tt>Unit&nbsp;tests&nbsp;for&nbsp;the&nbsp;API&nbsp;endpoints.<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;contains&nbsp;tests&nbsp;for&nbsp;the&nbsp;registration&nbsp;endpoint&nbsp;and&nbsp;the&nbsp;index&nbsp;page.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pytest.html">pytest</a><br>
+</td><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-base_url"><strong>base_url</strong></a>()</dt><dd><tt>Base&nbsp;URL&nbsp;for&nbsp;the&nbsp;API</tt></dd></dl>
+ <dl><dt><a name="-session"><strong>session</strong></a>()</dt><dd><tt>Create&nbsp;a&nbsp;requests&nbsp;session&nbsp;for&nbsp;testing</tt></dd></dl>
+ <dl><dt><a name="-test_index"><strong>test_index</strong></a>(session, base_url)</dt><dd><tt>Test&nbsp;the&nbsp;index&nbsp;endpoint.<br>
+&nbsp;<br>
+This&nbsp;test&nbsp;ensures&nbsp;that&nbsp;the&nbsp;index&nbsp;page&nbsp;loads&nbsp;successfully&nbsp;and&nbsp;contains&nbsp;the&nbsp;expected&nbsp;content.</tt></dd></dl>
+ <dl><dt><a name="-test_register"><strong>test_register</strong></a>(session, base_url)</dt><dd><tt>Test&nbsp;the&nbsp;registration&nbsp;endpoint.<br>
+&nbsp;<br>
+This&nbsp;test&nbsp;verifies&nbsp;that&nbsp;a&nbsp;valid&nbsp;registration&nbsp;request&nbsp;returns&nbsp;a&nbsp;success&nbsp;response.</tt></dd></dl>
+ <dl><dt><a name="-test_register_missing_fields"><strong>test_register_missing_fields</strong></a>(session, base_url)</dt><dd><tt>Test&nbsp;registration&nbsp;with&nbsp;missing&nbsp;fields.<br>
+&nbsp;<br>
+This&nbsp;test&nbsp;checks&nbsp;that&nbsp;the&nbsp;API&nbsp;returns&nbsp;an&nbsp;error&nbsp;when&nbsp;required&nbsp;fields&nbsp;are&nbsp;missing.</tt></dd></dl>
+</td></tr></table>
+</body></html>

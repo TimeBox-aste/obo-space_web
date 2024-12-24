@@ -16,6 +16,7 @@ class PostgreSQLConnector:
     """PostgreSQL connector supporting both sync and async operations"""
     
     def __init__(self):
+        """Initialize the PostgreSQLConnector with sync and async engines."""
         self._engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True)
         self._async_engine = create_async_engine(ASYNC_DATABASE_URL, echo=False, pool_pre_ping=True)
         
@@ -33,7 +34,7 @@ class PostgreSQLConnector:
 
     @contextmanager
     def get_db(self) -> Session:
-        """Synchronous database session context manager"""
+        """Synchronous database session context manager."""
         session = self._SessionLocal()
         try:
             yield session
@@ -45,7 +46,7 @@ class PostgreSQLConnector:
             session.close()
 
     async def get_async_db(self) -> AsyncSession:
-        """Asynchronous database session context manager"""
+        """Asynchronous database session context manager."""
         async with self._AsyncSessionLocal() as session:
             try:
                 yield session
@@ -55,23 +56,23 @@ class PostgreSQLConnector:
                 raise e
 
     def execute_sync(self, query: Any) -> Any:
-        """Execute synchronous database query"""
+        """Execute synchronous database query."""
         with self.get_db() as db:
             result = db.execute(query)
             return result
 
     async def execute_async(self, query: Any) -> Any:
-        """Execute asynchronous database query"""
+        """Execute asynchronous database query."""
         async with self.get_async_db() as db:
             result = await db.execute(query)
             return result
 
     def dispose(self):
-        """Dispose synchronous engine"""
+        """Dispose synchronous engine."""
         self._engine.dispose()
 
     async def dispose_async(self):
-        """Dispose asynchronous engine"""
+        """Dispose asynchronous engine."""
         await self._async_engine.dispose()
 
 def db_operation(is_async: bool = False):

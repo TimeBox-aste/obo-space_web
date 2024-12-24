@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module rmq_connector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>rmq_connector</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cprojects%5Cobo-space_web%5Ctests%5Crmq_connector.py">d:\projects\obo-space_web\tests\rmq_connector.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="uuid.html">uuid</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="rmq_connector.html#RabbitMQClient">RabbitMQClient</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RabbitMQClient">class <strong>RabbitMQClient</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#RabbitMQClient">RabbitMQClient</a>(config)<br>
+&nbsp;<br>
+RabbitMQ&nbsp;client&nbsp;for&nbsp;sending&nbsp;messages&nbsp;to&nbsp;a&nbsp;queue.<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;provides&nbsp;methods&nbsp;to&nbsp;connect&nbsp;to&nbsp;RabbitMQ&nbsp;and&nbsp;publish&nbsp;messages.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;settings<br>
+&gt;&gt;&gt;&nbsp;rmq_client&nbsp;=&nbsp;<a href="#RabbitMQClient">RabbitMQClient</a>(settings.RABBITMQ_CONFIG)<br>
+&gt;&gt;&gt;&nbsp;rmq_client.<a href="#RabbitMQClient-publish">publish</a>(message)<br>
+True<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;rmq_client.<a href="#RabbitMQClient-connect">connect</a>()<br>
+&gt;&gt;&gt;&nbsp;rmq_client.channel.queue_declare(queue=config['queue_name'],&nbsp;durable=True)<br>
+&gt;&gt;&gt;&nbsp;rmq_client.channel.basic_publish(exchange='',&nbsp;routing_key=config['queue_name'],&nbsp;body=json.dumps(message),&nbsp;properties=BasicProperties(delivery_mode=2,&nbsp;message_id=str(uuid.uuid4())))<br>
+&gt;&gt;&gt;&nbsp;rmq_client.connection.close()<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RabbitMQClient-__init__"><strong>__init__</strong></a>(self, config)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="RabbitMQClient-connect"><strong>connect</strong></a>(self)</dt><dd><tt>Establish&nbsp;connection&nbsp;to&nbsp;RabbitMQ</tt></dd></dl>
+
+<dl><dt><a name="RabbitMQClient-publish"><strong>publish</strong></a>(self, message)</dt><dd><tt>Publish&nbsp;message&nbsp;to&nbsp;queue</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

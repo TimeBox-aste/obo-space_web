@@ -1,3 +1,8 @@
+"""Unit tests for the API endpoints.
+
+This module contains tests for the registration endpoint and the index page.
+"""
+
 import requests
 import pytest
 
@@ -13,7 +18,10 @@ def base_url():
     return 'http://localhost:5000'
 
 def test_register(session, base_url):
-    """Test the registration endpoint"""
+    """Test the registration endpoint.
+    
+    This test verifies that a valid registration request returns a success response.
+    """
     response = session.post(f'{base_url}/api/v1/register', json={
         'full_name': 'John Doe',
         'email': 'john@example.com',
@@ -26,7 +34,10 @@ def test_register(session, base_url):
     assert data['success'] is True
 
 def test_register_missing_fields(session, base_url):
-    """Test registration with missing fields"""
+    """Test registration with missing fields.
+    
+    This test checks that the API returns an error when required fields are missing.
+    """
     response = session.post(f'{base_url}/api/v1/register', json={
         'full_name': '',
         'email': 'john@example.com',
@@ -39,7 +50,10 @@ def test_register_missing_fields(session, base_url):
     assert data['message'] == 'All fields are required'
 
 def test_index(session, base_url):
-    """Test the index endpoint"""
+    """Test the index endpoint.
+    
+    This test ensures that the index page loads successfully and contains the expected content.
+    """
     response = session.get(f'{base_url}/')
     response.raise_for_status()
     data = response.text

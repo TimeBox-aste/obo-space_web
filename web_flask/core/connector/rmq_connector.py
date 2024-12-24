@@ -4,6 +4,19 @@ from pika import PlainCredentials, BlockingConnection, ConnectionParameters, Bas
 from pika.exchange_type import ExchangeType
 
 class RabbitMQClient:
+    """
+    RabbitMQ client for sending messages to a queue
+    >>> import settings
+    >>> rmq_client = RabbitMQClient(settings.RABBITMQ_CONFIG)
+    >>> rmq_client.publish(message)
+    True
+
+    >>> rmq_client.connect()
+    >>> rmq_client.channel.queue_declare(queue=config['queue_name'], durable=True)
+    >>> rmq_client.channel.basic_publish(exchange='', routing_key=config['queue_name'], body=json.dumps(message), properties=BasicProperties(delivery_mode=2, message_id=str(uuid.uuid4())))
+    >>> rmq_client.connection.close()
+
+    """
     def __init__(self, config):
         self.config = config
         self.connection = None

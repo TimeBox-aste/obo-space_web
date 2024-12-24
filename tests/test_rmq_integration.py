@@ -1,8 +1,14 @@
+"""Integration tests for RabbitMQ message publishing and consuming.
+
+This module tests the interaction between the publisher and consumer to ensure
+that messages are correctly sent and received.
+"""
+
 import json
 import time
 import unittest
 from threading import Thread
-from .rmq_connector import RabbitMQClient
+from rmq_connector import RabbitMQClient
 
 class TestConsumer:
     """Simple test consumer that stores received messages"""
@@ -36,6 +42,12 @@ class TestConsumer:
             self.client.connection.process_data_events(time_limit=1)
             
 class TestRabbitMQIntegration(unittest.TestCase):
+    """Integration tests for RabbitMQ message publishing and consuming.
+    
+    This class tests the interaction between the publisher and consumer to ensure
+    that messages are correctly sent and received.
+    """
+    
     def setUp(self):
         """Setup test environment"""
         self.config = {
@@ -62,7 +74,11 @@ class TestRabbitMQIntegration(unittest.TestCase):
         self.publisher.connection.close()
         
     def test_message_publishing_and_consuming(self):
-        """Test that published message is received by consumer"""
+        """Test that published message is received by consumer.
+        
+        This test verifies that a message published to the RabbitMQ queue is
+        successfully consumed by the consumer.
+        """
         test_message = {
             'type': 'test',
             'data': 'Hello, World!',

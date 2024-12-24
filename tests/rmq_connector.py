@@ -5,7 +5,10 @@ from pika.exchange_type import ExchangeType
 
 class RabbitMQClient:
     """
-    RabbitMQ client for sending messages to a queue
+    RabbitMQ client for sending messages to a queue.
+    
+    This class provides methods to connect to RabbitMQ and publish messages.
+    
     >>> import settings
     >>> rmq_client = RabbitMQClient(settings.RABBITMQ_CONFIG)
     >>> rmq_client.publish(message)
