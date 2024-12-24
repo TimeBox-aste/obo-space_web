@@ -101,7 +101,7 @@ def db_operation(is_async: bool = False):
         return async_wrapper if is_async else sync_wrapper
     return decorator
 
-# Usage examples:
+
 @db_operation(is_async=False)
 def get_user_by_id(user_id: int, session: Session) -> Optional[Any]:
     """Example of synchronous database operation"""
@@ -115,5 +115,4 @@ async def get_user_by_email(email: str, session: AsyncSession) -> Optional[Any]:
     )
     return result.scalar_one_or_none()
 
-# Singleton instance
 db = PostgreSQLConnector()

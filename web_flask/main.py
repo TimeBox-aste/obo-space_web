@@ -1,6 +1,6 @@
 import os
 from flask import Flask, send_from_directory, abort, request
-
+import migration
 from blueprints.api_bluep.endpoint import endpoint as api_bluep
 from blueprints.web_bluep.endpoint import endpoint as web_bluep
 import settings

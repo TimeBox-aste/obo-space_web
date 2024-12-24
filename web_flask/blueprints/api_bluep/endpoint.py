@@ -56,10 +56,9 @@ def register():
 
 @endpoint.route('/api/v1/check-status/<registration_id>', methods=['GET'])
 def check_status(registration_id):
-    """Check registration status"""
+    """Check registration status IGNORE THAT METHOD LEGACY"""
     try:
-        # This would typically check a database
-        # Mock response for now
+        
         return jsonify({
             'success': True,
             'registration_id': registration_id,

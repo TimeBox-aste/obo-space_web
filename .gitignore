@@ -15,8 +15,12 @@ web_flask/blueprints/api_bluep/__pycache__/*
 web_flask/blueprints/web_bluep/__pycache__/*
 web_flask/core/db/__pycache__/*
 web_flask/core/connector/__pycache__/*
+tests/__pycache__/*
+*.pyc
+*/__pycache__/*
 docker/postgres/data/*
 docker/rabbitmq/data/*
 docker/logs/*
 logs/*
 create_rmq.py
+.venv/

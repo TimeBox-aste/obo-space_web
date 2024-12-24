@@ -19,6 +19,19 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class EmailConsumer:
+    """
+    Email consumer for processing messages from RabbitMQ
+
+    >>> consumer = EmailConsumer()
+    >>> consumer.start_consuming()
+    >>> consumer.connect()
+    >>> consumer.channel.queue_declare(queue=RABBITMQ_CONFIG['queue_name'], durable=True)
+    >>> consumer.channel.basic_consume(queue=RABBITMQ_CONFIG['queue_name'], on_message_callback=consumer.callback)
+    >>> consumer.channel.start_consuming()
+    >>> consumer.connection.close()
+    
+    """
+
     def __init__(self):
         self.email_sender = EmailSender()
         self.connection = None

@@ -19,6 +19,16 @@ from settings import (
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class EmailSender:
+    """
+    Email sender for sending emails
+
+    >>> email_sender = EmailSender()
+    >>> email_sender.send_registration_email('test@exist_email.com', '1234567890')
+    True
+    >>> email_sender.send_registration_email('test@not_exist_email.com', '1234567890')
+    False
+
+    """
     def __init__(self):
         template_dir = Path(__file__).parent / 'templates'
         self.env = Environment(loader=FileSystemLoader(str(template_dir)))
